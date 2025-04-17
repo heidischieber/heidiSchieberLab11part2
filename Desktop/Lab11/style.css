@@ -1,0 +1,23 @@
+/*
+style.css edits Practice1.html
+*/
+/*following make h1 green*/
+
+h1 {  /*styling h1*/
+    color: green; /*sets color as green*/
+    font-size: "75px"; /*sets font size as 75px*/
+    text-align: center; /*centers the h1*/
+}
+
+body { /*styling body*/
+    font-family: "Papyrus", sans-serif; /*if Papyrus isn't supported by the browser then sans-serif font will be used*/ 
+}
+
+
+.center { /*center function which is called by both image and video*/
+    display: block; /*makes whatever calls .center into a block element*/
+    
+    /*margin-left and margin-right are set to auto to center the image*/
+    margin-left: auto;
+    margin-right: auto; 
+}

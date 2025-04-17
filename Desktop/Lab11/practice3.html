@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Password Verification</title>
+    </head>
+
+    <body> <!--body code will be stored between this and the end call to body-->
+        <!--creating label for user inputing their password the first time-->
+        <label for="passowrd1">Enter Passowrd:</label> <!--creates a label for the user to input their password into the first time-->
+        <input type="text" id="password1" name="password1"<br><br>> <!--determines the type as "text", id as "password1", and name as "password1" of the user's input-->
+        
+        <!--creating label for user inputing their password the second time-->
+        <label for="passowrd2">Enter Passowrd:</label> <!--creates a label for the user to input their password into the second time-->
+        <input type="text" id="password2" name="password2"<br><br>> <!--determines the type as "text", id as "password2", and name as "password2" of the user's input-->
+
+        <!--the following is JavaScript-->
+        <script> 
+
+            const password1 = document.getElementById('password1'); //creates a variable called password1 that holds the value contained in password1 which is found by the getElementById() method
+            const password2 = document.getElementById('password2'); //creates a variable called password2 that holds the value contained in password2 which is found by the getElementById() method
+            const feedback = document.createElement('div'); //got from girlswhocode.com
+            //'div' is used to gropu and structure specific content for a webpage
+            //the above line of code creates a div block that is empty but will be later used
+
+            document.body.appendChild(feedback); //got from girlswhocode.com ~ appends the 'div' block that will be used later to end the end of the body part of the html code
+
+            function passwordChecker() { //creates a function called passwordChecker
+                //had to create a function because otherwise the following code would run mutliple times 
+                let correct_p_len = false; //boolean variable that stores if the password is the correct length
+                let passwords_match = false; //boolean variable that stores if the two passwords match
+
+                if (password1.value.length >= 8){ //if statement that checks if password1 is at least 8 characters long
+                    correct_p_len = true; //if True then correct_p_len is set to true
+                }
+
+                if (password1.value == password2.value){ //if statement that checks if password1's value is equivalent to password2's value
+                    passwords_match = true; //if true then passwords_match is set to true
+                }
+
+                if (correct_p_len && passwords_match){ //if statement that checks if correct_p_len and passwords_match are both true
+                    //if true the following is attached to div and will be displayed
+                    feedback.innerHTML = `<p>The passwords match.</p>`; //references div block from earlier and allows for creation of paragraph from html inside JavaScript code
+                } else if (!passwords_match){ //if the first if statements condtion is not true then checks if !passwords_match is equivalent to true
+                    feedback.innerHTML = `<p>The passwords don't match.</p>`; //if true then div block will be attached to the following paragraph and it will be displayed
+                } else { //if the above two statements are not true then the following is run
+                    feedback.innerHTML = `<p>The password must contain at least 8 characters.</p>`; //div block will be attached to the following paragraph and it will be displayed
+                }
+                
+            }
+
+            password1.addEventListener('input', passwordChecker); //addEventListener() checks for user input (paramter one) password1 and then runs function passwordChecker which manipulates the user's input
+            password2.addEventListener('input', passwordChecker); //addEventListener() checks for user input (paramter one) in password2 and then runs function passwordChecker
+    
+        </script> <!--end call to script-->
+    </body> <!--end call to body-->
+</html> <!--end call to html-->

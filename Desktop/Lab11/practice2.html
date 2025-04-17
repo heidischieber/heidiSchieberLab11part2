@@ -1,0 +1,39 @@
+<!DOCTYPE html> <!--symbolizes that this is an html document-->
+<html> <!--html code will be stored between this and the end html call-->
+    <head> <!--header will be stored between this and the end head call-->
+        <title>CSS Font Control</title> <!--title of header-->
+        <link rel="stylesheet" href="style2.css"> <!--Found how to link css file on chatgpt-->
+    </head> <!--end call of head-->
+
+    <body> <!--body code will be stored between this and the end call to body-->
+        <p id="paragraph"><br>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p> <!--random text paragraph-->
+        <br><br> <!--breaks for easier readability-->
+        <label for="pColor">Paragraph color:</label> <!--creates a label for paragraph color with id=pColor-->
+        <input type="text" id="pColor" name="pColor"<br><br>> <!--input allows user to input a value, text allows them to input RGB values, and the id is pColor-->
+        <label for="bColor">Border color:</label> <!--creates a label for border color with id=bColor-->
+        <input type="text" id="bColor" name="bColor"> <!--input allows user to input a value, text allows them to input RGB values, and the id is bColor-->
+        
+        <!--the following is JavaScript-->
+        <script> //I tried researching how to use user input in a label to edit something using just CSS and couldn't find a way so I'm also using JavaScript
+            //JavaScript needed for changing paragraph color using the user's input in the label
+            //also most of this is from chatgpt because I didn't know how to do this previously
+            
+            //document means the whole web page and .getElementById(id) returns the value stored in id 
+            
+            const pColor = document.getElementById('pColor'); //creates a variable called pColor that holds the value contained in pColor which is found by the getElementById() method
+            const paragraph = document.getElementById('paragraph'); //creates a variable called paragraph that holds the value/element contained in paragraph which is found by the getElementById() method
+            //'paragraph' above holds p in first line of body of html
+            pColor.addEventListener('input', function (){ //addEventListener "listens" for input changes in the HTML element pColor so when user inputs a hex it will then perform the following code once the method catches it
+                paragraph.style.color = pColor.value; //paragraph.style.color means the color element of paragraph and then pColor.value gets the value stored in the element pColor
+            });
+
+            const bColor = document.getElementById('bColor'); //creates a variable called bColor that holds the value contained in bColor which is found by the getElementById() method
+
+            bColor.addEventListener('input', function() { //addEventListener "listens" for input changes in the HTML element bColor so when user inputs a hex it will then perform the following code once the method catches it
+                paragraph.style.border = `4px solid ${bColor.value}`; //got this from chatGpt ~ paragraph.style.border references the border style element of paragraph and 4px determines how fat the border is and solid says what kind of border and then bColorInput.value grabs the value stored in the element/variable bColorInput
+                /*${bColor.value} is how to embedd a variable in a string in JavaScript ~ found from chatGpt*/
+            })
+            
+        </script> <!--end call to script-->
+    </body> <!--end call to body-->
+</html> <!--end call to html-->
